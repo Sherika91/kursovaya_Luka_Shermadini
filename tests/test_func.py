@@ -109,7 +109,7 @@ def test_date_change():
 
 
 def test_from_user():
-    assert func.from_user(None) == "XXXX"
+    assert func.from_user(None) == "XXXX XXXX XXXX XXXX"
     assert func.from_user("Mastercard 1234561278901234") == "Mastercard 1234 56** **** 1234"
 
 

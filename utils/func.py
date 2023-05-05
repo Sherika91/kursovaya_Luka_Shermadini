@@ -18,7 +18,8 @@ def from_user(item):
     """separating account transaction name account (sent from user) number to different
      lists and returning them covered so numbers are hidden"""
     if item is None:
-        return "XXXX"
+        return "XXXX XXXX XXXX XXXX"
+    # if we don't have data from where user sent money we print XXXX hidden numbers as example of credit card 16 digits.
     else:
         split_string = item.split(' ')
         account_name = split_string[0]
