@@ -22,9 +22,18 @@ def from_user(item):
     # if we don't have data from where user sent money we print XXXX hidden numbers as example of credit card 16 digits.
     else:
         split_string = item.split(' ')
-        account_name = split_string[0]
-        account_number = split_string[1]
-        return f"{account_name} {account_number[0:4]} {account_number[4:6]}{'** ' + ('*' * 4)} {account_number[-4:]}"
+        if len(split_string) == 3:
+            return f"{' '.join(split_string[:2])}" \
+                   f" {''.join(split_string[-1][0:4])}" \
+                   f" {''.join(split_string[-1][4:6])}{'** ****'}" \
+                   f" {''.join(split_string[-1][-4:])}"
+        else:
+            split_string = item.split(' ')
+            account_name = split_string[0]
+            account_number = split_string[1]
+            return f"{account_name} {account_number[0:4]}" \
+                   f" {account_number[4:6]}" \
+                   f"{'** ' + ('*' * 4)} {account_number[-4:]}"
 
 
 def to_user(item):
